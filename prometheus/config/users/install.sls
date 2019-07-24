@@ -5,6 +5,23 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import prometheus with context %}
 
+{%- if name != 'prometheus' %}
+
+prometheus-ever-present-as-user:
+  group.present:
+    - name: prometheus
+    - require_in:
+      - user: prometheus-config-user-install-{{ name }}-user-present
+  user.present:
+    - name: prometheus
+    - shell: /bin/false
+    - createhome: false
+    - groups:
+      - prometheus
+
+{%- endif %}
+
+
   {%- for name in prometheus.wanted %}
 
 prometheus-config-user-install-{{ name }}-user-present:
