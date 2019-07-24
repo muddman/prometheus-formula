@@ -10,8 +10,6 @@
 prometheus-ever-present-as-user:
   group.present:
     - name: prometheus
-    - require_in:
-      - user: prometheus-config-user-install-{{ name }}-user-present
   user.present:
     - name: prometheus
     - shell: /bin/false
