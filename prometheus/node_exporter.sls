@@ -48,9 +48,10 @@ node_exporter_service_script:
         [Install]
         WantedBy=multi-user.target
 
-node_service_daemon_reload:
-  cmd.run:
-    - 'systemctl daemon-reload'
+service.systemctl_reload:
+  module.wait:
+    - require:
+     - file: /usr/lib/systemd/system/node_exporter.service
 
 node_service:
   service:
