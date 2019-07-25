@@ -50,8 +50,8 @@ node_exporter_service_script:
 
 service.systemctl_reload:
   module.wait:
-    - require:
-     - file: /usr/lib/systemd/system/node_exporter.service
+    - watch:
+      - file: /usr/lib/systemd/system/node_exporter.service
 
 node_service:
   service:
