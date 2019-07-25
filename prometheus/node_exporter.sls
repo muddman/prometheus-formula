@@ -19,7 +19,7 @@ node_version_{{ version }}:
     - source_hash: {{ hash }}
     - user: prometheus
     - group: prometheus
-    - clean: True
+    - enforce_ownership_on: True
 
 
 
