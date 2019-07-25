@@ -25,6 +25,7 @@ prometheus_server_version_{{ version }}:
     - source_hash: {{ hash }}
     - user: prometheus
     - group: prometheus
+    - clean: True
 
 
 prometheus_server_config:
@@ -58,7 +59,7 @@ prometheus_server_service_script:
         WorkingDirectory=/var/lib/prometheus/prometheus
         User=prometheus
         Group=prometheus
-        ExecStart=/opt/prometheus/server/prometheus -config.file=etc/prometheus/prometheus.yml -log.level info
+        ExecStart=/opt/prometheus/server/prometheus-{{ version }}.linux-amd64/prometheus -config.file=etc/prometheus/prometheus.yml -log.level info
         PIDFile=/var/run/prometheus.pid
 
         [Install]

@@ -12,7 +12,7 @@ user_prometheus:
     - name: prometheus
     - groups:
       - prometheus
-    - home: /srv/prometheus
+    - home: /opt/prometheus
     - createhome: True
     - shell: /bin/false
     - system: True
