@@ -48,6 +48,10 @@ node_exporter_service_script:
         [Install]
         WantedBy=multi-user.target
 
+node_service_daemon_reload:
+  cmd.run:
+    - systemctl daemon-relaod
+
 node_service:
   service:
     - running
