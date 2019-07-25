@@ -29,6 +29,7 @@ node_exporter_service_script:
     - name: /usr/lib/systemd/system/node_exporter.service
     - user: root
     - group: root
+    - makedirs: True
     - contents: |
         [Unit]
         Description=node_exporter service

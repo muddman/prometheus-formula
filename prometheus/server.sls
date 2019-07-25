@@ -39,6 +39,7 @@ prometheus_server_service_script:
     - name: /usr/lib/systemd/system/prometheus.service
     - user: root
     - group: root
+    - makedirs: True
     - contents: |
         [Unit]
         Description=prometheus - prometheus service
