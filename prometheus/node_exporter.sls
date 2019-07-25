@@ -31,7 +31,7 @@ node_exporter_service_script:
     - group: root
     - contents: |
         [Unit]
-        Description:node_exporter service
+        Description=node_exporter service
         Wants=network-online.target
         After=
 
