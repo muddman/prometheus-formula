@@ -16,3 +16,19 @@ user_prometheus:
     - createhome: True
     - shell: /bin/false
     - system: True
+
+file-basedir-file-directory:
+  file.directory:
+    - name: /opt/prometheus
+    - user: prometheus
+    - group: prometheus
+    - mode: 755
+    - makedirs: True
+
+file-basedir-config-directory:
+  file.directory:
+    - name: /etc/prometheus
+    - user: prometheus
+    - group: prometheus
+    - mode: 755
+    - makedirs: True

@@ -9,13 +9,6 @@
 include: 
   - ._user
 
-prometheus-config-file-basedir-file-directory:
-  file.directory:
-    - name: /opt/prometheus
-    - user: prometheus
-    - group: prometheus
-    - mode: 755
-    - makedirs: True
 
 prometheus_server_version_{{ version }}:
   archive:
@@ -51,7 +44,6 @@ prometheus_server_service_script:
         Description=prometheus - prometheus service
         Wants=network-online.target
         After=
-        Documentation=https://github.com/saltstack-formulas/prometheus-formula
 
         [Service]
         Type=simple
