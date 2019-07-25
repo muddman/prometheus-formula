@@ -32,3 +32,11 @@ file-basedir-config-directory:
     - group: prometheus
     - mode: 755
     - makedirs: True
+
+create_working_dir:
+  file.directory:
+    - name: /var/lib/prometheus
+    - user: prometheus
+    - group: prometheus
+    - mode: 755
+    - makedirs: True

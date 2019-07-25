@@ -39,7 +39,7 @@ node_exporter_service_script:
         [Service]
         Type=simple
         RemainAfterExit=no
-        WorkingDirectory=/var/lib/prometheus/node_exporter
+        WorkingDirectory=/var/lib/prometheus
         User=prometheus
         Group=prometheus
         ExecStart=/opt/prometheus/node_exporter/node_exporter-{{ version }}.linux-amd64/node_exporter 
