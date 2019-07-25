@@ -50,7 +50,7 @@ node_exporter_service_script:
 
 node_service_daemon_reload:
   cmd.run:
-    - systemctl daemon-reload
+    - 'systemctl daemon-reload'
 
 node_service:
   service:
