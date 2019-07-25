@@ -3,10 +3,11 @@
 #!jinja|yaml
 
 {%- set version = salt['pillar.get']('prometheus:server:version') %}
-{%- set hash = salt['pillar.get']('prometheus:server:version:hash') %}
+{%- set hash = salt['pillar.get']('prometheus:server:hash') %}
 
 # SLS includes/ excludes
-include: ._user
+include: 
+  - ._user
 
 prometheus-config-file-basedir-file-directory:
   file.directory:
