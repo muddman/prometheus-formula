@@ -2,7 +2,8 @@
     
 #!jinja|yaml
 
-{%- set p = salt['pillar.get']('prometheus') %}
+{%- set version = salt['pillar.get']('prometheus:server:version') %}
+{%- set hash = salt['pillar.get']('prometheus:server:version:hash') %}
 
 # SLS includes/ excludes
 include: ._user
@@ -15,12 +16,12 @@ prometheus-config-file-basedir-file-directory:
     - mode: 755
     - makedirs: True
 
-prometheus_server_version_{{ p.server.version }}:
+prometheus_server_version_{{ version }}:
   archive:
     - extracted
     - name: /opt/prometheus/server
-    - source: https://github.com/prometheus/prometheus/releases/download/v{{ p.server.version }}/prometheus-{{ p.server.version }}.linux-amd64.tar.gz
-    - source_hash: {{ p.server.version.hash }}
+    - source: https://github.com/prometheus/prometheus/releases/download/v{{ version }}/prometheus-{{ version }}.linux-amd64.tar.gz
+    - source_hash: {{ hash }}
     - user: prometheus
     - group: prometheus
 
