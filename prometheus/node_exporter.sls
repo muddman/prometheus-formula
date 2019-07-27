@@ -4,6 +4,7 @@
 
 {%- set version = salt['pillar.get']('prometheus:node_exporter:version') %}
 {%- set hash = salt['pillar.get']('prometheus:node_exporter:hash') %}
+{%- set switches = salt['pillar.get']('prometheus:node_exporter:switches', default='') %}
 
 # SLS includes/ excludes
 include: 
@@ -42,7 +43,7 @@ node_exporter_service_script:
         WorkingDirectory=/var/lib/prometheus
         User=prometheus
         Group=prometheus
-        ExecStart=/opt/prometheus/node_exporter/node_exporter-{{ version }}.linux-amd64/node_exporter 
+        ExecStart=/opt/prometheus/node_exporter/node_exporter-{{ version }}.linux-amd64/node_exporter {{ switches }}
         PIDFile=/var/run/node_exporter.pid
 
         [Install]
