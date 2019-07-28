@@ -11,6 +11,7 @@ include:
 {%- set version= params.version %}
 {%- set hash = params.hash %}
 {%- set switches = params.switches|default() %}
+{%- set env = params.env|default() %}
 
 
 node_version_{{ name }}:
@@ -39,6 +40,9 @@ node_version_{{ name }}:
         After=
 
         [Service]
+        {%- if {{ env }} %}
+        Environment={{ env }}
+        {%- endif %}
         Type=simple
         RemainAfterExit=no
         WorkingDirectory=/var/lib/prometheus

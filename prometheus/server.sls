@@ -1,12 +1,12 @@
 
-    
+
 #!jinja|yaml
 
 {%- set version = salt['pillar.get']('prometheus:server:version') %}
 {%- set hash = salt['pillar.get']('prometheus:server:hash') %}
 
 # SLS includes/ excludes
-include: 
+include:
   - ._user
 
 
