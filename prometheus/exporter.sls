@@ -40,7 +40,7 @@ node_version_{{ name }}:
         After=
 
         [Service]
-        {%- if {{ env }} %}
+        {%- if env  %}
         Environment={{ env }}
         {%- endif %}
         Type=simple
